@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title> FoodEx </title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+div.head{
+
+     border: 15px solid gray;
+     text-align: center;
+     background-color: black;
+   	height: 100px;
+   	width: 1366px;
+
+}
+</style>
+<body>
+  <div class="head" >
+          <font size="10" face="Comic Sans MS" color="white"> FoodEx </font>
+    </div>
+    <br><br>
+    <div class="w3-container">
+    <div class="w3-row">
+   <a href="C:\Users\HP-15\Desktop\AMOC\files\front.html" onclick="openCity(event, 'Home');">
+     <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" align="center">Home</div>
+   </a>
+   <a href="javascript:void(0)" onclick="openCity(event, 'Cart');">
+     <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" align="center">Cart</div>
+   </a>
+   <a href="C:\Users\HP-15\Desktop\AMOC\files\payment.html" onclick="openCity(event, 'Payment');">
+     <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" align="center">Payment</div>
+   </a>
+ </div>
+
+  <div id="Home" class="w3-container city" style="display:none">
+   <br>
+   <h1 align="center">Home</h1>
+   <h3 align="center"><u> List Of Items </u></h3>
+   <form name="fooditems"  method="post">
+<p>Please select every food that you want to order.</p>
+
+Waffer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="food" value="Waffer"  /><br />
+
+Patties:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="food" value="Patties"  /><br />
+
+ColdDrink: <input type="checkbox" name="food" value="ColdDrink"  /><br />
+
+Maggie:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="food" value="Maggie"  /><br><br>
+ <input type="submit" value="Submit">
+</form>
+
+ </div>
+
+ <div id="Cart" class="w3-container city" >
+   <h2 align="center">Things you have Chosen!</h2>
+
+Welcome <?php echo $_GET["waffer"]; ?><br>
+Your email address is: <?php echo $_GET["patties"]; ?>
+   <p></p>
+ </div>
+
+ <div id="Payment" class="w3-container city" style="display:none">
+   <h2>Payment</h2>
+   <p>.</p>
+ </div> </div>
+  <script>
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-border-red";
+}
+  </script>
+</body>
+</html>
